@@ -1,85 +1,419 @@
-/* Portfolio Sections */
-
-.title {
-  text-align: center;
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 3rem;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-.skills {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fdfdfd;
+    color: #111;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    background: #0b0b0c;
+    border-bottom: 1px solid #222;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+nav ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: .3s ease;
+}
+
+nav ul li a:hover {
+    color: white;
+}
+
+/* BUTTONS */
+.btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background: #f0f0f0;
+    box-shadow: 0 10px 20px rgba(255,255,255,.1);
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 8%;
+    background: #0b0b0c;
+    color: white;
+    min-height: 85vh;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.hero-content h2 {
+    font-size: 75px;
+    font-weight: 900;
+    line-height: 0.95;
+    margin-bottom: 25px;
+    letter-spacing: -2px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 20px 30px rgba(0,0,0,0.7));
+    transition: .5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero img:hover {
+    transform: scale(1.04) rotate(-3deg);
+}
+
+/* PRODUCTS */
+.products {
+    padding: 100px 8%;
+    background: #f8f9fa;
+}
+
+.products h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
 }
 
 .card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  transition: 0.3s;
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.03);
+    border: 1px solid #eee;
+    transition: .4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(62,197,255,.35);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.08);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background: #f1f1f1;
+    transition: .5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.03);
+}
+
+.card-content {
+    padding: 24px;
+    text-align: left;
 }
 
 .card h3 {
-  color: var(--accent);
-  margin-bottom: 1rem;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
 }
 
-.card ul {
-  list-style: none;
-  padding: 0;
+.rating {
+    color: #ffcc00;
+    font-size: 13px;
+    margin-bottom: 12px;
 }
 
-.card li {
-  margin-bottom: 0.6rem;
-  color: var(--text-muted);
+.price {
+    color: #111;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 18px;
 }
 
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-  gap: 1.5rem;
+.card-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: #0b0b0c;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
 }
 
-.project {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
-  border-radius: 1.5rem;
-  overflow: hidden;
+.card-btn:hover {
+    background: #111112;
+    opacity: 0.9;
 }
 
-.project-content {
-  padding: 1.5rem;
+/* WISHLIST */
+.wishlist {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+    transition: .3s;
+    z-index: 10;
 }
 
-.project-content h3 {
-  margin-bottom: 1rem;
-  color: var(--accent);
+.wishlist:hover {
+    color: #ff3b30;
+    transform: scale(1.1);
 }
 
-.project-content p {
-  color: var(--text-muted);
+/* NEWSLETTER */
+.newsletter {
+    background: #0b0b0c;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-top: 1px solid #222;
 }
 
-.contact {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  text-align: center;
+.newsletter h2 {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1px;
 }
 
-.contact p {
-  color: var(--text-muted);
-  margin: 0.75rem 0;
+.newsletter p {
+    color: #aaa;
+    margin: 15px 0 35px 0;
+    font-size: 16px;
 }
 
-.about-image img {
-  border-radius: 1.5rem;
-  border: 2px solid rgba(255,255,255,0.08);
+.newsletter-box {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter input {
+    flex: 1;
+    padding: 16px 20px;
+    border: 1px solid #333;
+    background: #1c1c1e;
+    color: white;
+    border-radius: 30px;
+    font-size: 15px;
+    outline: none;
+    transition: .3s;
+}
+
+.newsletter input:focus {
+    border-color: #666;
+}
+
+.newsletter-btn {
+    padding: 16px 32px;
+    background: white;
+    color: black;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.newsletter-btn:hover {
+    background: #e5e5e5;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    color: #aaa;
+    padding: 80px 8% 40px 8%;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 50px;
+}
+
+.footer-logo {
+    color: white;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.footer-box h3 {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-box p {
+    line-height: 1.6;
+}
+
+.footer-box a {
+    display: block;
+    color: #888;
+    text-decoration: none;
+    margin: 12px 0;
+    transition: .3s;
+}
+
+.footer-box a:hover {
+    color: white;
+}
+
+.social {
+    display: flex;
+    gap: 15px;
+}
+
+.social i {
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    background: #111;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.social i:hover {
+    background: white;
+    color: black;
+    transform: translateY(-3px);
+}
+
+footer hr {
+    margin: 50px 0 30px 0;
+    border: 0;
+    border-top: 1px solid #1c1c1e;
+}
+
+.copyright {
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 5%;
+        gap: 50px;
+    }
+    .hero-image-container {
+        justify-content: center;
+    }
+    .hero-content h2 {
+        font-size: 55px;
+    }
+}
+
+@media(max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .newsletter-box {
+        flex-direction: column;
+        width: 100%;
+    }
 }
