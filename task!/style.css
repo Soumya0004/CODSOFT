@@ -32,11 +32,20 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 }
-
 .logo{
-font-size:30px;
-font-weight:700;
-color:#38bdf8;
+    display:flex;
+    align-items:center;
+}
+.logo a{
+    color:#38bdf8;
+    text-decoration:none;
+    font-size:30px;
+    font-weight:700;
+    transition:.3s ease;
+}
+
+.logo a:hover{
+    color:#67e8f9;
 }
 
 nav{
@@ -131,30 +140,111 @@ border-radius:50px;
 section{
 padding:100px 0;
 }
-
 .title{
-text-align:center;
-font-size:40px;
-margin-bottom:60px;
+    text-align:center;
+    font-size:40px;
+    margin-bottom:60px;
 }
 
+/* About Section */
+
 .about{
-display:grid;
-grid-template-columns:300px 1fr;
-gap:50px;
+display:flex;
+justify-content:center;
 align-items:center;
 }
 
-.about-image img{
-width:100%;
+.about-card{
+max-width:900px;
+background:#1e293b;
+padding:50px;
 border-radius:20px;
+border:1px solid rgba(56,189,248,.25);
+transition:.4s;
 }
 
-.about-text{
-line-height:2;
+.about-card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(56,189,248,.18);
+}
+
+.about-card h3{
+font-size:32px;
+color:#38bdf8;
+margin-bottom:20px;
+}
+
+.about-card p{
 color:#cbd5e1;
+line-height:1.9;
+margin-bottom:18px;
+font-size:17px;
 }
 
+.about-card span{
+color:#38bdf8;
+font-weight:600;
+}
+
+.about-stats{
+margin-top:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+gap:20px;
+}
+
+.stat{
+background:#0f172a;
+padding:25px;
+border-radius:15px;
+text-align:center;
+transition:.3s;
+border:1px solid rgba(56,189,248,.15);
+}
+
+.stat:hover{
+background:#38bdf8;
+transform:translateY(-5px);
+}
+
+.stat h3{
+font-size:28px;
+margin-bottom:10px;
+color:#38bdf8;
+}
+
+.stat:hover h3{
+color:white;
+}
+
+.stat span{
+color:#cbd5e1;
+font-size:15px;
+}
+
+.stat:hover span{
+color:white;
+}
+
+@media(max-width:768px){
+
+.about-card{
+padding:30px 25px;
+}
+
+.about-card h3{
+font-size:28px;
+}
+
+.about-card p{
+font-size:16px;
+}
+
+.about-stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
 .skills{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -233,8 +323,7 @@ color:#94a3b8;
 
 @media(max-width:768px){
 
-.hero-content,
-.about{
+.hero-content{
 grid-template-columns:1fr;
 }
 
